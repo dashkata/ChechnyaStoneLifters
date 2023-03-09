@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import 'components/request_card.dart';
 
 class AvailableRequestsScreen extends StatelessWidget {
@@ -8,12 +9,15 @@ class AvailableRequestsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          leading: null,
           title: const Text('Available requests'),
         ),
         body: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (BuildContext context, int index) => RequestCard(),
+          itemCount: requests.length,
+          itemBuilder: (BuildContext context, int index) => RequestCard(
+            name: requests[index].creator.name,
+            date: requests[index].date.toString(),
+            startingPoint: requests[index].startAddress,
+          ),
         ),
       );
 }
