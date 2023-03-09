@@ -2,6 +2,8 @@ import 'package:checheneca/presentation/screens/requests/requests_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../available_requests_screen/components/request_card.dart';
+
 class RequestsScreen extends StatelessWidget {
   const RequestsScreen({Key? key}) : super(key: key);
 
@@ -12,8 +14,9 @@ class RequestsScreen extends StatelessWidget {
               ? const CircularProgressIndicator()
               : ListView.builder(
                   itemCount: context.read<RequestsViewModel>().requests.length,
-                  itemBuilder: (_, index) => Text(
-                    context.read<RequestsViewModel>().requests[index],
+                  itemBuilder: (_, index) => RequestCard(
+                    guardRequest:
+                        context.read<RequestsViewModel>().requests[index],
                   ),
                 ),
         ),
