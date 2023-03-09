@@ -1,3 +1,4 @@
+import 'package:checheneca/utils/bodyguard_type_enum.dart';
 import 'package:flutter/cupertino.dart';
 
 class CreateRequestViewModel extends ChangeNotifier {
@@ -7,6 +8,9 @@ class CreateRequestViewModel extends ChangeNotifier {
   final List<bool> checkBoxList = [];
   List<String> skills = ['driver', 'weapon', ' kyr'];
   Map<String, bool> skillsCheck = {};
+  BodyGuardType _bodyGuardType = BodyGuardType.security;
+
+  get bodyGuardType => _bodyGuardType;
 
   Future<void> init() async {
     for (final skill in skills) {
@@ -19,9 +23,14 @@ class CreateRequestViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void changeRadioTile(BodyGuardType? bodyGuardType) {
+    if (bodyGuardType != null) {
+      _bodyGuardType = bodyGuardType;
+    }
+    notifyListeners();
+  }
+
   Future<void> submitRequest() async {
-
     // skillsCheck.map((key, value) => )
-
   }
 }

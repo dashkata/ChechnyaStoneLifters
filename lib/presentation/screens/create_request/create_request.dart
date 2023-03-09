@@ -4,13 +4,17 @@ import 'package:checheneca/presentation/widgets/unfocus_detector.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utils/bodyguard_type_enum.dart';
+
+part 'widgets/skills_list.dart';
+
+part 'widgets/custom_radio_tile.dart';
+
 class CreateRequestScreen extends StatelessWidget {
   const CreateRequestScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<String> skills = ['driver', 'weapon'];
-    List<bool> skillsValue = [true, false];
     return UnfocusDetector(
       child: SafeArea(
         child: Scaffold(
@@ -18,6 +22,18 @@ class CreateRequestScreen extends StatelessWidget {
             builder: (context, viewModel, child) => Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Column(
+                  children: [
+                    _CustomRadioTile(
+                      bodyGuard: BodyGuardType.driver,
+                      viewModel: viewModel,
+                    ),
+                    _CustomRadioTile(
+                      bodyGuard: BodyGuardType.security,
+                      viewModel: viewModel,
+                    ),
+                  ],
+                ),
                 CustomTextField(
                   label: 'Description',
                   controller: viewModel.descriptionController,
@@ -27,32 +43,14 @@ class CreateRequestScreen extends StatelessWidget {
                   label: 'Starting address',
                   controller: viewModel.descriptionController,
                 ),
-                GridView(
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.only(
-                    left: 30,
-                    // top: 100,
-                  ),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  children: List.generate(
-                    viewModel.skillsCheck.length,
-                    (index) => Row(
-                      children: [
-                        Checkbox(
-                          value: viewModel.skillsCheck.values.elementAt(index),
-                          onChanged: (value) => viewModel.changeCheckbox(
-                            index,
-                            value!,
-                          ),
-                        ),
-                        Text(
-                          viewModel.skillsCheck.keys.elementAt(index),
-                        ),
-                      ],
-                    ),
-                  ),
+                viewModel.bodyGuardType == BodyGuardType.driver
+                    ? CustomTextField(
+                        label: 'Ending address',
+                        controller: viewModel.descriptionController,
+                      )
+                    : const SizedBox.shrink(),
+                _SkillsList(
+                  viewModel: viewModel,
                 ),
                 ElevatedButton(
                   onPressed: () async => await viewModel.submitRequest(),
