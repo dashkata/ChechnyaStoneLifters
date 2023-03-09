@@ -15,20 +15,9 @@ class RequestsViewModel extends ChangeNotifier {
         id: 1,
         startAddress: 'Bankya, st. Samo Sinite',
         date: DateTime(1),
-        creator: user1,
+        creator: user1, description: '', skills: [],
       ),
-      GuardRequest(
-        id: 2,
-        startAddress: 'Bankya, st. Samo Sinite',
-        date: DateTime(2),
-        creator: user2,
-      ),
-      GuardRequest(
-        id: 3,
-        startAddress: 'Bankya, st. Samo Sinite',
-        date: DateTime(1111),
-        creator: user1,
-      ),
+
     ];
     _isLoading = false;
     notifyListeners();

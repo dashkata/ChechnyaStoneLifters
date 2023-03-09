@@ -4,6 +4,8 @@ class GuardRequest {
   final int id;
   final String startAddress;
   final String? endAddress;
+  final String description;
+  final List<String> skills;
   final DateTime date;
   final User creator;
 
@@ -12,6 +14,8 @@ class GuardRequest {
     required this.startAddress,
     required this.date,
     required this.creator,
+    required this.description,
+    required this.skills,
     this.endAddress,
   });
 }
