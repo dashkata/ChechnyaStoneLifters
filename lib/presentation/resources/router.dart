@@ -3,13 +3,19 @@ import 'package:checheneca/presentation/screens/create_request/create_request_vm
 import 'package:checheneca/presentation/screens/requests/requests.dart';
 import 'package:checheneca/presentation/screens/requests/requests_vm.dart';
 import 'package:flutter/material.dart';
-
+import '../available_requests_screen/available_requests_view.dart';
+import '../available_requests_screen/available_requests_view_model.dart';
+import '../request_description_screen/request_description_view.dart';
+import '../request_description_screen/request_description_viewmodel.dart';
+import 'vm_builder.dart';
 import '../../utils/get_it.dart';
 import '../screens/create_request/create_request.dart';
 
 class Routes {
   static const String createRequest = 'create_request';
   static const String requests = 'requests';
+  static const String availableRequestsScreen = 'available_requests_screen';
+  static const String requestDescriptionScreen = 'request_description_screen';
 }
 
 class AppRouter {
@@ -31,8 +37,24 @@ class AppRouter {
             viewModelBuilder: getIt<RequestsViewModel>,
           ),
         );
+      case Routes.availableRequestsScreen:
+        return MaterialPageRoute(
+          builder: (context) => ViewModelBuilder<AvailableRequestsVM>(
+            builder: (context, viewModel) => const AvailableRequestsScreen(),
+            viewModelBuilder: getIt<AvailableRequestsVM>,
+          ),
+        );
+      case Routes.requestDescriptionScreen:
+        return MaterialPageRoute(
+          builder: (context) => ViewModelBuilder<RequestDescriptionVM>(
+            builder: (context, viewModel) => const RequestDescriptionScreen(),
+            viewModelBuilder: getIt<RequestDescriptionVM>,
+          ),
+        );
       default:
-        return MaterialPageRoute(builder: (context) => const SizedBox.shrink());
+        return MaterialPageRoute(
+          builder: (context) => const SizedBox.shrink(),
+        );
     }
   }
 }
