@@ -11,11 +11,10 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(),
-      onGenerateRoute: AppRouter.generateRoute,
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(),
+        initialRoute: AppRouter.availableRequestsScreen,
+        onGenerateRoute: AppRouter.generateRoute,
+      );
 }
