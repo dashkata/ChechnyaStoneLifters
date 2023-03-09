@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../../domain/models/guard_request.dart';
 
 class RequestDescriptionScreen extends StatelessWidget {
-  const RequestDescriptionScreen({super.key});
+  const RequestDescriptionScreen({required this.guardRequest, super.key});
+
+  final GuardRequest guardRequest;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -9,8 +14,57 @@ class RequestDescriptionScreen extends StatelessWidget {
           title: const Text('Description'),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(),
+            Text(guardRequest.creator.name),
+            Text(DateFormat.yMMMMEEEEd().format(guardRequest.date)),
+            Text(guardRequest.startAddress),
+            Text(guardRequest.endAddress ?? ''),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blue),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const <Widget>[
+                      Icon(Icons.check),
+                      SizedBox(width: 8.0),
+                      Text('Accept', style: TextStyle(fontSize: 16)),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.red),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const <Widget>[
+                      Icon(Icons.close),
+                      SizedBox(width: 8.0),
+                      Text('Reject', style: TextStyle(fontSize: 16)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       );

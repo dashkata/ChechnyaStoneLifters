@@ -1,9 +1,9 @@
-import 'package:checheneca/presentation/resources/router.dart';
-import 'package:checheneca/utils/get_it.dart';
 import 'package:flutter/material.dart';
 
 import 'domain/models/guard_request.dart';
 import 'domain/models/user.dart';
+import 'presentation/resources/router.dart';
+import 'utils/get_it.dart';
 
 final User user1 = User(1, 'PurvoIme VtoroIme');
 final User user2 = User(2, 'VtoroIme PurvoIme');
@@ -41,6 +41,6 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(),
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: Routes.requests,
+        initialRoute: Routes.availableRequestsScreen,
       );
 }
