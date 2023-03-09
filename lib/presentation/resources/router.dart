@@ -3,12 +3,13 @@ import 'package:checheneca/presentation/screens/create_request/create_request_vm
 import 'package:checheneca/presentation/screens/requests/requests.dart';
 import 'package:checheneca/presentation/screens/requests/requests_vm.dart';
 import 'package:flutter/material.dart';
+
+import '../../domain/models/guard_request.dart';
+import '../../utils/get_it.dart';
 import '../available_requests_screen/available_requests_view.dart';
 import '../available_requests_screen/available_requests_view_model.dart';
 import '../request_description_screen/request_description_view.dart';
 import '../request_description_screen/request_description_viewmodel.dart';
-import 'vm_builder.dart';
-import '../../utils/get_it.dart';
 import '../screens/create_request/create_request.dart';
 
 class Routes {
@@ -47,7 +48,9 @@ class AppRouter {
       case Routes.requestDescriptionScreen:
         return MaterialPageRoute(
           builder: (context) => ViewModelBuilder<RequestDescriptionVM>(
-            builder: (context, viewModel) => const RequestDescriptionScreen(),
+            builder: (context, viewModel) => RequestDescriptionScreen(
+              guardRequest: settings.arguments as GuardRequest,
+            ),
             viewModelBuilder: getIt<RequestDescriptionVM>,
           ),
         );
