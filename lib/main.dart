@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(),
-        initialRoute: AppRouter.availableRequestsScreen,
         onGenerateRoute: AppRouter.generateRoute,
+        initialRoute: Routes.requests,
       );
 }

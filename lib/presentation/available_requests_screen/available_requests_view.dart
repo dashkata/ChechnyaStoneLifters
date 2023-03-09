@@ -14,9 +14,7 @@ class AvailableRequestsScreen extends StatelessWidget {
         body: ListView.builder(
           itemCount: requests.length,
           itemBuilder: (BuildContext context, int index) => RequestCard(
-            name: requests[index].creator.name,
-            date: requests[index].date.toString(),
-            startingPoint: requests[index].startAddress,
+            guardRequest: requests[index],
           ),
         ),
       );

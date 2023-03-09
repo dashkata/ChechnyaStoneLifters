@@ -1,0 +1,4 @@
+enum BodyGuardType{
+  driver,
+  security,
+}
