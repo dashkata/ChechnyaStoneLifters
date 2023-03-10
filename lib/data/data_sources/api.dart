@@ -24,6 +24,17 @@ class API {
     }
   }
 
+  Future<Response> fetchUserRequests({required int userId}) async {
+    try {
+      final response = await _dio.get(
+        Endpoint.usersRequests(userId.toString()),
+      );
+      return response;
+    } on Exception catch (e) {
+      rethrow;
+    }
+  }
+
   Future<void> acceptRequest(
     int requestId,
     int guardId,

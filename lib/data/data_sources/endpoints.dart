@@ -5,6 +5,10 @@ class Endpoint {
 
   static String acceptRequest(String requestId, String guardId) =>
       '${_address}requests/$requestId/guard/$guardId';
+
   static String cancelRequest(String requestId) =>
       '${_address}requests/$requestId/active';
+
+  static String usersRequests(String userId) =>
+      '${_address}requests/users/$userId';
 }

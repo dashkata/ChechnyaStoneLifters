@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utils/user_type_enum.dart';
 import '../../resources/themes.dart';
 import 'available_requests_view_model.dart';
 import 'components/request_card.dart';
@@ -24,6 +25,7 @@ class AvailableRequestsScreen extends StatelessWidget {
               : ListView.builder(
                   itemCount: viewModel.requests.length,
                   itemBuilder: (BuildContext context, int index) => RequestCard(
+                    userType: UserType.bodyguard,
                     guardRequest: viewModel.requests[index],
                   ),
                 ),

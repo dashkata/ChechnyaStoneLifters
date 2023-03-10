@@ -15,4 +15,7 @@ abstract class RequestRepo {
   Future<void> cancelRequest({
     required int requestId,
   });
+  Future<List<RequestModel>> fetchUserRequests({
+    required int userId,
+  });
 }

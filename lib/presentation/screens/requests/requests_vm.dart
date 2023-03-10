@@ -12,9 +12,12 @@ class RequestsViewModel extends ChangeNotifier {
   bool _isLoading = true;
 
   bool get isLoading => _isLoading;
-  late List<RequestModel> requests;
+  List<RequestModel> _requests = [];
+
+  List<RequestModel> get requests => _requests;
 
   Future<void> init() async {
+    _requests = await _requestRepo.fetchUserRequests(userId: 1);
     _isLoading = false;
     notifyListeners();
   }
