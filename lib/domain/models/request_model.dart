@@ -21,7 +21,7 @@ class RequestModel {
 
   Map<String, dynamic> toJson() => {
         'description': description,
-        'userId': 1,
+        'userId': user.id,
         'startingAddress': startingAddress,
         'endingAddress': endingAddress,
         'isGuard': true,
