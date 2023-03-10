@@ -23,10 +23,14 @@ class API {
     print(response);
   }
 
-  Future<List<RequestEntity>> getAvailableRequests() async {
-    final response = await _dio.get(
-      Endpoint.requests,
-    );
-    return response;
+  Future getAvailableRequests() async {
+    try {
+      final response = await _dio.get(
+        Endpoint.requests,
+      );
+      return response;
+    } on Exception catch (e) {
+      rethrow;
+    }
   }
 }

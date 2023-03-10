@@ -18,5 +18,8 @@ class APIRepository implements RequestRepo {
   }
 
   @override
-  Future<List<RequestModel>> getAvailableRequests() {}
+  Future<List<RequestModel>> getAvailableRequests() async {
+    final data = await _api.getAvailableRequests();
+    return [];
+  }
 }
