@@ -5,7 +5,7 @@ import 'domain/models/user.dart';
 import 'presentation/resources/router.dart';
 import 'utils/get_it.dart';
 
-final User user1 = User(1, 'PurvoIme VtoroIme');
+final User user1 = User(1, 'Alexander Georgiev');
 final User user2 = User(2, 'VtoroIme PurvoIme');
 final List<RequestModel> requests = [];
 

@@ -15,9 +15,11 @@ class RequestsViewModel extends ChangeNotifier {
         id: 1,
         startingAddress: 'Bankya, st. Samo Sinite',
         date: DateTime(1),
-        user: user1, description: '', skills: [],
+        user: user1,
+        description:
+            'Tova e description za mrusnat aobqvcac Tova e description za mrusnat aobqvcac Tova e description za mrusnat aobqvcac Tova e description za mrusnat aobqvcac v Tova e description za mrusnat aobqvcac vv',
+        skills: [],
       ),
-
     ];
     _isLoading = false;
     notifyListeners();
