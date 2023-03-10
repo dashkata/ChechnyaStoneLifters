@@ -6,6 +6,7 @@ import '../screens/available_requests_screen/available_requests_view.dart';
 import '../screens/available_requests_screen/available_requests_view_model.dart';
 import '../screens/create_request/create_request.dart';
 import '../screens/create_request/create_request_vm.dart';
+import '../screens/home/home.dart';
 import '../screens/request_description_screen/request_description_view.dart';
 import '../screens/request_description_screen/request_description_viewmodel.dart';
 import '../screens/requests/requests.dart';
@@ -17,6 +18,7 @@ class Routes {
   static const String requests = 'requests';
   static const String availableRequestsScreen = 'available_requests_screen';
   static const String requestDescriptionScreen = 'request_description_screen';
+  static const String home = 'home';
 }
 
 class AppRouter {
@@ -42,6 +44,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => ViewModelBuilder<AvailableRequestsVM>(
             builder: (context, viewModel) => const AvailableRequestsScreen(),
+            onModelReady: (viewmodel) => viewmodel.init(),
             viewModelBuilder: getIt<AvailableRequestsVM>,
           ),
         );
@@ -53,6 +56,10 @@ class AppRouter {
             ),
             viewModelBuilder: getIt<RequestDescriptionVM>,
           ),
+        );
+      case Routes.home:
+        return MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
         );
       default:
         return MaterialPageRoute(

@@ -29,8 +29,18 @@ void setupGetIt() {
       ),
     )
     ..registerFactory(
-      RequestsViewModel.new,
+      () => RequestsViewModel(
+        requestRepo: getIt<APIRepository>(),
+      ),
     )
-    ..registerFactory(AvailableRequestsVM.new)
-    ..registerFactory(RequestDescriptionVM.new);
+    ..registerFactory(
+      () => AvailableRequestsVM(
+        requestRepo: getIt<APIRepository>(),
+      ),
+    )
+    ..registerFactory(
+      () => RequestDescriptionVM(
+        requestRepo: getIt<APIRepository>(),
+      ),
+    );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../domain/models/request_model.dart';
+import '../../../../utils/user_type_enum.dart';
 import '../../../resources/router.dart';
 import '../../../resources/themes.dart';
 import '../../../widgets/icon_text_widget.dart';
@@ -8,20 +9,22 @@ import '../../../widgets/icon_text_widget.dart';
 class RequestCard extends StatelessWidget {
   const RequestCard({
     required this.guardRequest,
+    required this.userType,
     super.key,
   });
 
   final RequestModel guardRequest;
+  final UserType userType;
 
   @override
   Widget build(BuildContext context) => InkWell(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            Routes.requestDescriptionScreen,
-            arguments: guardRequest,
-          );
-        },
+        onTap: userType == UserType.bodyguard
+            ? () => Navigator.pushReplacementNamed(
+                  context,
+                  Routes.requestDescriptionScreen,
+                  arguments: guardRequest,
+                )
+            : null,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Card(
