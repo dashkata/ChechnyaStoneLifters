@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
 import 'components/request_card.dart';
 
 class AvailableRequestsScreen extends StatelessWidget {

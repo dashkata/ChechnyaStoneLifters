@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/models/guard_request.dart';
+import '../../../domain/models/guard_request.dart';
 
 class RequestDescriptionScreen extends StatelessWidget {
   const RequestDescriptionScreen({required this.guardRequest, super.key});
@@ -18,7 +18,7 @@ class RequestDescriptionScreen extends StatelessWidget {
             Text(guardRequest.user.name),
             // Text(DateFormat.yMMMMEEEEd().format(guardRequest.date)),
             Text(guardRequest.startingAddress),
-            Text(guardRequest.endingAddress ?? ''),
+            Text(guardRequest.endAddress ?? ''),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

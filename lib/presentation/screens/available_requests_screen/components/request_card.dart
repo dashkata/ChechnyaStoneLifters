@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/models/guard_request.dart';
-import '../../global_widgets/icon_text_widget.dart';
-import '../../resources/router.dart';
+import '../../../../domain/models/guard_request.dart';
+import '../../../resources/router.dart';
+import '../../../widgets/icon_text_widget.dart';
 
 class RequestCard extends StatelessWidget {
   const RequestCard({

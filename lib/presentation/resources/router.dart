@@ -1,16 +1,16 @@
-import 'package:checheneca/presentation/resources/vm_builder.dart';
-import 'package:checheneca/presentation/screens/create_request/create_request_vm.dart';
-import 'package:checheneca/presentation/screens/requests/requests.dart';
-import 'package:checheneca/presentation/screens/requests/requests_vm.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/models/guard_request.dart';
 import '../../utils/get_it.dart';
-import '../available_requests_screen/available_requests_view.dart';
-import '../available_requests_screen/available_requests_view_model.dart';
-import '../request_description_screen/request_description_view.dart';
-import '../request_description_screen/request_description_viewmodel.dart';
+import '../screens/available_requests_screen/available_requests_view.dart';
+import '../screens/available_requests_screen/available_requests_view_model.dart';
 import '../screens/create_request/create_request.dart';
+import '../screens/create_request/create_request_vm.dart';
+import '../screens/request_description_screen/request_description_view.dart';
+import '../screens/request_description_screen/request_description_viewmodel.dart';
+import '../screens/requests/requests.dart';
+import '../screens/requests/requests_vm.dart';
+import 'vm_builder.dart';
 
 class Routes {
   static const String createRequest = 'create_request';

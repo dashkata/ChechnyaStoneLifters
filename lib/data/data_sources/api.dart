@@ -22,4 +22,15 @@ class API {
     );
     print(response);
   }
+
+  Future getAvailableRequests() async {
+    try {
+      final response = await _dio.get(
+        Endpoint.requests,
+      );
+      return response;
+    } on Exception catch (e) {
+      rethrow;
+    }
+  }
 }

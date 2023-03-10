@@ -2,8 +2,8 @@ import 'package:checheneca/presentation/screens/requests/requests_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../available_requests_screen/components/request_card.dart';
 import '../../resources/router.dart';
+import '../available_requests_screen/components/request_card.dart';
 
 class RequestsScreen extends StatelessWidget {
   const RequestsScreen({super.key});
