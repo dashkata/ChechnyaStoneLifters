@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:checheneca/utils/bodyguard_type_enum.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -13,7 +15,6 @@ class CreateRequestViewModel extends ChangeNotifier {
   final TextEditingController startingAddressController =
       TextEditingController();
   final TextEditingController endingAddressController = TextEditingController();
-  final List<bool> checkBoxList = [];
   final RequestRepo _requestRepo;
   List<String> skills = ['weapon', 'aa', 'bb', 'cc', 'ee', 'fc', 'fgg'];
   Map<String, bool> skillsCheck = {};
@@ -48,14 +49,15 @@ class CreateRequestViewModel extends ChangeNotifier {
         }
       }
     }
+
     await _requestRepo.createRequest(
       request: RequestModel(
         id: 0,
         startingAddress: startingAddressController.text,
         date: DateTime.now(),
-        user: User(0, ''),
+        user: UserModel(Random().nextInt(4) + 1, ''),
         description: descriptionController.text,
-        skills: selectedSkills,
+        skills: skillsCheck,
       ),
     );
   }

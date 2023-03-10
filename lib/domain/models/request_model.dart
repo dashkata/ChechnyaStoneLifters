@@ -5,11 +5,19 @@ class RequestModel {
   final String startingAddress;
   final String? endAddress;
   final String description;
-  final List<String> skills;
+  final Map<String, bool> skills;
   final DateTime date;
-  final User user;
+  final UserModel user;
+  final bool isDriver;
+  final bool hasGun;
+  final bool isGuard;
+  final bool hasVehicle;
 
   RequestModel({
+    required this.isDriver,
+    required this.hasGun,
+    required this.isGuard,
+    required this.hasVehicle,
     required this.id,
     required this.startingAddress,
     required this.date,
@@ -24,9 +32,10 @@ class RequestModel {
         'userId': user.id,
         'startingAddress': startingAddress,
         'endingAddress': endAddress,
-        'isGuard': true,
-        'isDriver': skills.contains('Driver'),
-        'hasGun': skills.contains('hasGun'),
+        'isGuard': isGuard,
+        'isDriver': isDriver,
+        'hasGun': hasGun,
+        'hasVehicle': hasVehicle,
         'isActive': true,
       };
 }

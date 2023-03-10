@@ -6,8 +6,8 @@ import 'presentation/resources/router.dart';
 import 'presentation/resources/themes.dart';
 import 'utils/get_it.dart';
 
-final User user1 = User(1, 'Alexander Georgiev');
-final User user2 = User(2, 'VtoroIme PurvoIme');
+final UserModel user1 = UserModel(1, 'Alexander Georgiev');
+final UserModel user2 = UserModel(2, 'VtoroIme PurvoIme');
 final List<RequestModel> requests = [];
 
 void main() {
@@ -29,6 +29,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: Routes.requests,
+        initialRoute: Routes.createRequest,
       );
 }

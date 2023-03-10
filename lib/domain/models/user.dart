@@ -1,6 +1,6 @@
-class User {
+class UserModel {
   final int id;
   final String name;
 
-  User(this.id, this.name);
+  UserModel(this.id, this.name);
 }

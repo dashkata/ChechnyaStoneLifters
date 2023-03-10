@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../domain/models/user.dart';
 import 'request.dart';
 
 part 'user.g.dart';
@@ -26,7 +25,8 @@ class UserEntity {
     required this.requests,
   });
 
-  User toUser() => User(id, name);
+  // UserModel toUser() => UserModel(id, name, email, phoneNumber,
+  //     requests.map((e) => e.toRequest()).toList());
 
   factory UserEntity.fromJson(Map<String, dynamic> json) =>
       _$UserEntityFromJson(json);
