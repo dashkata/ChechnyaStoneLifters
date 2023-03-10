@@ -17,6 +17,7 @@ class CreateRequestScreen extends StatelessWidget {
   Widget build(BuildContext context) => UnfocusDetector(
         child: SafeArea(
           child: Scaffold(
+            appBar: AppBar(),
             body: Consumer<CreateRequestViewModel>(
               builder: (context, viewModel, child) => Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +52,11 @@ class CreateRequestScreen extends StatelessWidget {
                     viewModel: viewModel,
                   ),
                   ElevatedButton(
-                    onPressed: () async => await viewModel.submitRequest(),
+                    onPressed: () async => await viewModel.submitRequest().then(
+                          (value) => Navigator.pop(
+                            context,
+                          ),
+                        ),
                     child: const Text(
                       'Submit request',
                     ),

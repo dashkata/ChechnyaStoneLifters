@@ -14,6 +14,6 @@ class _CustomRadioTile extends StatelessWidget {
         title: Text(bodyGuard.name),
         value: bodyGuard,
         groupValue: viewModel.bodyGuardType,
-        onChanged: (value) => viewModel.changeRadioTile(value),
+        onChanged: viewModel.changeRadioTile,
       );
 }

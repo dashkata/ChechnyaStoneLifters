@@ -14,7 +14,7 @@ class CreateRequestViewModel extends ChangeNotifier {
       TextEditingController();
   final List<bool> checkBoxList = [];
   final RequestRepo _requestRepo;
-  List<String> skills = ['driver', 'weapon'];
+  List<String> skills = ['weapon'];
   Map<String, bool> skillsCheck = {};
   BodyGuardType _bodyGuardType = BodyGuardType.security;
 
