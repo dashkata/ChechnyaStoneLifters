@@ -11,37 +11,18 @@ class _CustomRadioTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Expanded(
-          child: RadioListTile(
-        value: bodyGuard,
-        groupValue: viewModel.bodyGuardType,
-        onChanged: viewModel.changeRadioTile,
-        title: Text(
-          bodyGuard.name,
-          style: TextStyle(
-            color: Themes.accentColor,
-            fontSize: 16,
-            fontWeight: FontWeight.w300,
+        child: RadioListTile(
+          value: bodyGuard,
+          groupValue: viewModel.bodyGuardType,
+          onChanged: viewModel.changeRadioTile,
+          title: Text(
+            bodyGuard.name,
+            style: TextStyle(
+              color: Themes.accentColor,
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
+            ),
           ),
         ),
-      )
-          // child: Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     SizedBox(
-          //       width: 0,
-          //       child: Radio<BodyGuardType>(
-          //         value: bodyGuard,
-          //         groupValue: viewModel.bodyGuardType,
-          //         onChanged: viewModel.changeRadioTile,
-          //         fillColor: MaterialStateColor.resolveWith(
-          //           (states) => Themes.complementaryColor,
-          //         ),
-          //       ),
-          //     ),
-          //     const SizedBox(
-          //       width: 20,
-          //     ),
-
-          // ),
-          );
+      );
 }

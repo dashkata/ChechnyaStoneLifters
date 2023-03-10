@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:map_launcher/map_launcher.dart';
 
@@ -10,14 +11,10 @@ class RequestDescriptionVM extends ChangeNotifier {
 
   bool _isAccepted = false;
 
-  // int _requestId = 0;
-
   RequestDescriptionVM({required RequestRepo requestRepo})
       : _requestRepo = requestRepo;
 
   bool get isAccepted => _isAccepted;
-
-  // int get requestId => _requestId;
 
   Future<void> acceptRequest({
     required int requestId,
@@ -60,7 +57,7 @@ class RequestDescriptionVM extends ChangeNotifier {
                       title: address,
                     ),
                     title: Text(map.mapName),
-                    leading: Image.asset(
+                    leading: SvgPicture.asset(
                       map.icon,
                       height: 30.0,
                       width: 30.0,

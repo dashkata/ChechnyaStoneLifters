@@ -1,5 +1,5 @@
 class Endpoint {
-  static const _address = 'https://bbb5-194-141-252-114.eu.ngrok.io/';
+  static const _address = 'https://9f34-78-83-77-155.eu.ngrok.io/';
   static const String requests = '${_address}requests/';
   static const String activeRequest = '${_address}requests/active';
 

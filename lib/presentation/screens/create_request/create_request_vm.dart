@@ -1,5 +1,7 @@
 import 'package:checheneca/utils/bodyguard_type_enum.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../domain/models/request_model.dart';
 import '../../../domain/models/user.dart';
@@ -15,6 +17,9 @@ class CreateRequestViewModel extends ChangeNotifier {
   final TextEditingController endingAddressController = TextEditingController();
   final List<bool> checkBoxList = [];
   final RequestRepo _requestRepo;
+  DateTime? pickedDate;
+  TimeOfDay? pickedTime;
+  DateTime? _selectedDateTime;
   List<String> skills = ['weapon', 'aa', 'bb', 'cc', 'ee', 'fc', 'fgg'];
   Map<String, bool> skillsCheck = {};
   BodyGuardType _bodyGuardType = BodyGuardType.driver;
@@ -58,5 +63,25 @@ class CreateRequestViewModel extends ChangeNotifier {
         skills: selectedSkills,
       ),
     );
+  }
+
+  void setPickedDate() {
+    if (pickedDate != null && pickedTime != null) {
+      _selectedDateTime = DateTime(
+        pickedDate!.year,
+        pickedDate!.month,
+        pickedDate!.day,
+        pickedTime!.hour,
+        pickedTime!.minute,
+      );
+      notifyListeners();
+    }
+  }
+
+  String? getTimeAsString() {
+    if (_selectedDateTime != null) {
+      return DateFormat('EEE, MMM d, yyyy, hh:mm a').format(_selectedDateTime!);
+    }
+    return null;
   }
 }

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../../utils/bodyguard_type_enum.dart';
 import '../../resources/themes.dart';
+import 'widgets/date_time_row.dart';
 
 part 'widgets/skills_list.dart';
 
@@ -74,6 +75,15 @@ class CreateRequestScreen extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 24.0,
+                      ),
+                      child: DateTimeRow(),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
                     CustomTextField(
                       label: 'Description',
                       controller: viewModel.descriptionController,
@@ -96,6 +106,9 @@ class CreateRequestScreen extends StatelessWidget {
                         controller: viewModel.endingAddressController,
                         maxLength: 100,
                       ),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     _SkillsList(
                       viewModel: viewModel,
                     ),

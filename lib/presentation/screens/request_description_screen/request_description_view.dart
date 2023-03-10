@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../../domain/models/request_model.dart';
@@ -82,15 +83,39 @@ class RequestDescriptionScreen extends StatelessWidget {
                   ),
                 ),
                 if (guardRequest.endAddress != null)
-                  Row(
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 16.0,
+                      top: 24,
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.location_pin),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Text(guardRequest.endAddress ?? ''),
+                      ],
+                    ),
+                  ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                    top: 24,
+                  ),
+                  child: Row(
                     children: [
-                      const Icon(Icons.location_pin),
+                      const Icon(Icons.date_range),
                       const SizedBox(
                         width: 8,
                       ),
-                      Text(guardRequest.endAddress ?? ''),
+                      Text(
+                        DateFormat('yyyy-MM-dd hh:mm')
+                            .format(guardRequest.date),
+                      ),
                     ],
                   ),
+                ),
                 const Spacer(),
                 ElevatedButton(
                   onPressed: () =>
