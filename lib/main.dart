@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'domain/models/guard_request.dart';
+import 'domain/models/request_model.dart';
 import 'domain/models/user.dart';
 import 'presentation/resources/router.dart';
 import 'utils/get_it.dart';
@@ -22,6 +22,6 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(),
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: Routes.availableRequestsScreen,
+        initialRoute: Routes.createRequest,
       );
 }

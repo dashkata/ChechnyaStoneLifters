@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/models/guard_request.dart';
+import '../../../../domain/models/request_model.dart';
 import '../../../resources/router.dart';
 import '../../../widgets/icon_text_widget.dart';
 

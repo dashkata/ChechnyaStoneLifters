@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../domain/models/guard_request.dart';
+import '../../../domain/models/request_model.dart';
 import '../../../main.dart';
 
 class RequestsViewModel extends ChangeNotifier {
@@ -15,9 +15,10 @@ class RequestsViewModel extends ChangeNotifier {
         id: 1,
         startingAddress: 'Bankya, st. Samo Sinite',
         date: DateTime(1),
-        user: user1, description: '', skills: [],
+        user: user1,
+        description: '',
+        skills: [],
       ),
-
     ];
     _isLoading = false;
     notifyListeners();

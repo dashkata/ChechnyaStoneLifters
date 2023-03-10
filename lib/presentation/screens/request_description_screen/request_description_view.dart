@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/models/guard_request.dart';
+import '../../../domain/models/request_model.dart';
 
 class RequestDescriptionScreen extends StatelessWidget {
   const RequestDescriptionScreen({required this.guardRequest, super.key});
