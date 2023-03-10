@@ -22,4 +22,11 @@ class API {
     );
     print(response);
   }
+
+  Future<List<RequestEntity>> getAvailableRequests() async {
+    final response = await _dio.get(
+      Endpoint.requests,
+    );
+    return response;
+  }
 }

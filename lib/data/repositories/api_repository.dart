@@ -16,4 +16,7 @@ class APIRepository implements RequestRepo {
       request: RequestEntity.fromRequest(request),
     );
   }
+
+  @override
+  Future<List<RequestModel>> getAvailableRequests() {}
 }
