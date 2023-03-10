@@ -1,3 +1,4 @@
+import 'package:checheneca/presentation/resources/themes.dart';
 import 'package:flutter/material.dart';
 
 import 'domain/models/guard_request.dart';
@@ -20,7 +21,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(),
+        theme: ThemeData(
+          radioTheme: RadioThemeData(
+            fillColor: MaterialStateColor.resolveWith(
+              (states) => Themes.complementaryColor,
+            ),
+          ),
+        ),
         onGenerateRoute: AppRouter.generateRoute,
         initialRoute: Routes.requests,
       );
