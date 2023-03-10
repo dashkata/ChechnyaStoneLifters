@@ -12,11 +12,13 @@ class CreateRequestViewModel extends ChangeNotifier {
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController startingAddressController =
       TextEditingController();
+  final TextEditingController endingAddressController =
+  TextEditingController();
   final List<bool> checkBoxList = [];
   final RequestRepo _requestRepo;
-  List<String> skills = ['weapon'];
+  List<String> skills = ['weapon', 'aa', 'bb', 'cc','ee', 'fc', 'fgg'];
   Map<String, bool> skillsCheck = {};
-  BodyGuardType _bodyGuardType = BodyGuardType.security;
+  BodyGuardType _bodyGuardType = BodyGuardType.driver;
 
   BodyGuardType get bodyGuardType => _bodyGuardType;
 
@@ -32,6 +34,7 @@ class CreateRequestViewModel extends ChangeNotifier {
   }
 
   void changeRadioTile(BodyGuardType? bodyGuardType) {
+    print('object');
     if (bodyGuardType != null) {
       _bodyGuardType = bodyGuardType;
     }

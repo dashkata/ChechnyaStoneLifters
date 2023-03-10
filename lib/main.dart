@@ -22,6 +22,6 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(),
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: Routes.availableRequestsScreen,
+        initialRoute: Routes.requests,
       );
 }
