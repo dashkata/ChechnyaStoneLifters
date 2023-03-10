@@ -21,6 +21,8 @@ class RequestEntity {
   bool isGuard;
   @JsonKey(defaultValue: false)
   bool isTaken;
+  @JsonKey(defaultValue: false)
+  bool hasVehicle;
   UserEntity? user;
   BodyguardEntity? guard;
   @JsonKey(defaultValue: '')
@@ -36,6 +38,7 @@ class RequestEntity {
     required this.hasGun,
     required this.isGuard,
     required this.isTaken,
+    required this.hasVehicle,
     required this.startingAddress,
     required this.isActive,
     this.user,
@@ -47,9 +50,9 @@ class RequestEntity {
         id: id,
         startingAddress: startingAddress,
         date: DateTime(1914),
-        user: User(1, 'MaikaMu'),
+        user: UserModel(1, 'MaikaMu'),
         description: description,
-        skills: ['driver', 'hasGun'],
+        skills: {'hasGun': hasGun, 'isDriver': isDriver, 'isTaken': isTaken},
       );
 
   factory RequestEntity.fromJson(Map<String, dynamic> json) =>
