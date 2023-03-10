@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../domain/models/request_model.dart';
+import '../../resources/router.dart';
 import '../../resources/themes.dart';
+import 'request_description_viewmodel.dart';
 
 class RequestDescriptionScreen extends StatelessWidget {
   const RequestDescriptionScreen({required this.guardRequest, super.key});
@@ -13,6 +16,15 @@ class RequestDescriptionScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Description'),
           backgroundColor: Themes.complementaryColor,
+          leading: context.watch<RequestDescriptionVM>().isAccepted
+              ? null
+              : IconButton(
+                  icon: const Icon(Icons.arrow_back_ios),
+                  onPressed: () => Navigator.pushReplacementNamed(
+                    context,
+                    Routes.availableRequestsScreen,
+                  ),
+                ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 120),
@@ -80,61 +92,89 @@ class RequestDescriptionScreen extends StatelessWidget {
                     ],
                   ),
                 const Spacer(),
+                ElevatedButton(
+                  onPressed: () =>
+                      context.read<RequestDescriptionVM>().launchMapFromAddress(
+                            address: guardRequest.startingAddress,
+                            context: context,
+                          ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Themes.complementaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Get directions',
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 32.0,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                            Themes.complementaryColor,
-                          ),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
+                  child: context.watch<RequestDescriptionVM>().isAccepted
+                      ? Column(
+                          children: [
+                            ElevatedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey[200],
+                              ),
+                              child: const Text(
+                                'Accepted',
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => context
+                                  .read<RequestDescriptionVM>()
+                                  .cancelRequest(
+                                    requestId: guardRequest.id,
+                                  )
+                                  .then(
+                                    (value) => Navigator.pushReplacementNamed(
+                                      context,
+                                      Routes.availableRequestsScreen,
+                                    ),
+                                  ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red,
+                              ),
+                              child: const Text(
+                                'Cancel request',
+                              ),
+                            ),
+                          ],
+                        )
+                      : ElevatedButton(
+                          onPressed: () => context
+                              .read<RequestDescriptionVM>()
+                              .acceptRequest(
+                                requestId: guardRequest.id,
+                                guardId: 1,
+                              ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                              Themes.complementaryColor,
+                            ),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                              ),
                             ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const <Widget>[
-                            Icon(Icons.check),
-                            SizedBox(width: 8.0),
-                            Text('Accept', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.red),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const <Widget>[
+                              Icon(Icons.check),
+                              SizedBox(width: 8.0),
+                              Text(
+                                'Accept',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ],
                           ),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const <Widget>[
-                            Icon(Icons.close),
-                            SizedBox(width: 8.0),
-                            Text('Reject', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ],
             ),

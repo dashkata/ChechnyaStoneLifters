@@ -29,4 +29,22 @@ class APIRepository implements RequestRepo {
       return [];
     }
   }
+
+  @override
+  Future<void> acceptRequest({
+    required int requestId,
+    required int guardId,
+  }) async =>
+      _api.acceptRequest(
+        requestId,
+        guardId,
+      );
+
+  @override
+  Future<void> cancelRequest({
+    required int requestId,
+  }) async =>
+      _api.cancelRequest(
+        requestId,
+      );
 }

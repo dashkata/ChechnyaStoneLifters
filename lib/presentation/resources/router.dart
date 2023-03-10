@@ -42,6 +42,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => ViewModelBuilder<AvailableRequestsVM>(
             builder: (context, viewModel) => const AvailableRequestsScreen(),
+            onModelReady: (viewmodel) => viewmodel.init(),
             viewModelBuilder: getIt<AvailableRequestsVM>,
           ),
         );

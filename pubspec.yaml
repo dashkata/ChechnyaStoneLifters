@@ -41,6 +41,8 @@ dependencies:
   intl: ^0.18.0
   json_annotation: ^4.8.0
   build_runner: ^2.3.3
+  map_launcher: ^2.5.0+1
+  geocoding: ^2.0.5
 
 dev_dependencies:
   flutter_test:

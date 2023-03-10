@@ -15,13 +15,11 @@ class RequestCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => InkWell(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            Routes.requestDescriptionScreen,
-            arguments: guardRequest,
-          );
-        },
+        onTap: () => Navigator.pushReplacementNamed(
+          context,
+          Routes.requestDescriptionScreen,
+          arguments: guardRequest,
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Card(
