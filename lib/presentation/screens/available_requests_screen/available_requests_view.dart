@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
+import '../../resources/themes.dart';
 import 'components/request_card.dart';
 
 class AvailableRequestsScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class AvailableRequestsScreen extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('Available requests'),
+          backgroundColor: Themes.complementaryColor,
         ),
         body: ListView.builder(
           itemCount: requests.length,

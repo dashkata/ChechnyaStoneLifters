@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../resources/themes.dart';
+
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
-    Key? key,
     required this.label,
     required this.controller,
+    Key? key,
     this.maxLength,
   }) : super(key: key);
   final String label;
@@ -12,11 +14,35 @@ class CustomTextField extends StatelessWidget {
   final int? maxLength;
 
   @override
-  Widget build(BuildContext context) => TextField(
-        decoration: InputDecoration(
-          label: Text(label),
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24.0,
         ),
-        controller: controller,
-        maxLength: maxLength,
+        child: TextField(
+          maxLines: null,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[200],
+            label: Text(
+              label,
+            ),
+            enabledBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  20,
+                ),
+              ),
+            ),
+            focusedBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  20,
+                ),
+              ),
+            ),
+          ),
+          controller: controller,
+          maxLength: maxLength,
+        ),
       );
 }
