@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../entities/request.dart';
+import '../../domain/models/request_model.dart';
 import 'endpoints.dart';
 
 class API {
@@ -8,22 +8,13 @@ class API {
   final Dio _dio;
 
   Future<void> createRequest({
-    required RequestEntity request,
+    required RequestModel request,
   }) async {
-    final response = await _dio.post(
-      Endpoint.requests,
-      data: {
-        'userId': 1,
-        'description': request.description,
-        'skills': request.skills,
-        'status': 'ne ',
-        'startingAddress': request.startingAddress,
-      },
-    );
+    final response = await _dio.post(Endpoint.requests, data: request.toJson());
     print(response);
   }
 
-  Future getAvailableRequests() async {
+  Future<Response> getAvailableRequests() async {
     try {
       final response = await _dio.get(
         Endpoint.requests,

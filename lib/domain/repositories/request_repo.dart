@@ -1,4 +1,4 @@
-import '../models/guard_request.dart';
+import '../models/request_model.dart';
 
 abstract class RequestRepo {
   Future<void> createRequest({

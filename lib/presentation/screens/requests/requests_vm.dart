@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../domain/models/guard_request.dart';
+import '../../../domain/models/request_model.dart';
 import '../../../main.dart';
 
 class RequestsViewModel extends ChangeNotifier {
@@ -16,8 +16,7 @@ class RequestsViewModel extends ChangeNotifier {
         startingAddress: 'Bankya, st. Samo Sinite',
         date: DateTime(1),
         user: user1,
-        description:
-            'Tova e description za mrusnat aobqvcac Tova e description za mrusnat aobqvcac Tova e description za mrusnat aobqvcac Tova e description za mrusnat aobqvcac v Tova e description za mrusnat aobqvcac vv',
+        description: '',
         skills: [],
       ),
     ];

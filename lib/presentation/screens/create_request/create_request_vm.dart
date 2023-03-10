@@ -1,7 +1,7 @@
 import 'package:checheneca/utils/bodyguard_type_enum.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../domain/models/guard_request.dart';
+import '../../../domain/models/request_model.dart';
 import '../../../domain/models/user.dart';
 import '../../../domain/repositories/request_repo.dart';
 

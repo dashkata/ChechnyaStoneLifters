@@ -1,9 +1,9 @@
-import 'package:checheneca/presentation/resources/themes.dart';
 import 'package:flutter/material.dart';
 
-import 'domain/models/guard_request.dart';
+import 'domain/models/request_model.dart';
 import 'domain/models/user.dart';
 import 'presentation/resources/router.dart';
+import 'presentation/resources/themes.dart';
 import 'utils/get_it.dart';
 
 final User user1 = User(1, 'Alexander Georgiev');

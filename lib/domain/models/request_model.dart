@@ -18,4 +18,15 @@ class RequestModel {
     required this.skills,
     this.endAddress,
   });
+
+  Map<String, dynamic> toJson() => {
+        'description': description,
+        'userId': user.id,
+        'startingAddress': startingAddress,
+        'endingAddress': endAddress,
+        'isGuard': true,
+        'isDriver': skills.contains('Driver'),
+        'hasGun': skills.contains('hasGun'),
+        'isActive': true,
+      };
 }

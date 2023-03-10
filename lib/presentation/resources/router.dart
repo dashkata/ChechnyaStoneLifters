@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/models/guard_request.dart';
+import '../../domain/models/request_model.dart';
 import '../../utils/get_it.dart';
 import '../screens/available_requests_screen/available_requests_view.dart';
 import '../screens/available_requests_screen/available_requests_view_model.dart';
