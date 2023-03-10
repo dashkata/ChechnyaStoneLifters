@@ -7,15 +7,15 @@ class RequestsViewModel extends ChangeNotifier {
   bool _isLoading = true;
 
   bool get isLoading => _isLoading;
-  late List<GuardRequest> requests;
+  late List<RequestModel> requests;
 
   Future<void> init() async {
     requests = [
-      GuardRequest(
+      RequestModel(
         id: 1,
-        startAddress: 'Bankya, st. Samo Sinite',
+        startingAddress: 'Bankya, st. Samo Sinite',
         date: DateTime(1),
-        creator: user1, description: '', skills: [],
+        user: user1, description: '', skills: [],
       ),
 
     ];

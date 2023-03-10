@@ -20,10 +20,10 @@ class RequestEntity {
         'skills': skills,
       };
 
-  factory RequestEntity.fromRequest(GuardRequest request) => RequestEntity(
+  factory RequestEntity.fromRequest(RequestModel request) => RequestEntity(
         userId: request.id,
         description: request.description,
-        startingAddress: request.startAddress,
+        startingAddress: request.startingAddress,
         skills: request.skills,
       );
 }

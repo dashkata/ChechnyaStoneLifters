@@ -49,7 +49,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => ViewModelBuilder<RequestDescriptionVM>(
             builder: (context, viewModel) => RequestDescriptionScreen(
-              guardRequest: settings.arguments as GuardRequest,
+              guardRequest: settings.arguments as RequestModel,
             ),
             viewModelBuilder: getIt<RequestDescriptionVM>,
           ),

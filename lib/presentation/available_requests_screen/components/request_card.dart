@@ -10,7 +10,7 @@ class RequestCard extends StatelessWidget {
     super.key,
   });
 
-  final GuardRequest guardRequest;
+  final RequestModel guardRequest;
 
   @override
   Widget build(BuildContext context) => InkWell(
@@ -30,7 +30,7 @@ class RequestCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconTextWidget(
-                  text: guardRequest.creator.name,
+                  text: guardRequest.user.name,
                   icon: Icons.person,
                 ),
                 IconTextWidget(
@@ -38,7 +38,7 @@ class RequestCard extends StatelessWidget {
                   icon: Icons.calendar_month_outlined,
                 ),
                 IconTextWidget(
-                  text: 'Starting point - ${guardRequest.startAddress}',
+                  text: 'Starting point - ${guardRequest.startingAddress}',
                   icon: Icons.location_pin,
                 ),
               ],

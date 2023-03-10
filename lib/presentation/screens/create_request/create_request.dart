@@ -40,7 +40,7 @@ class CreateRequestScreen extends StatelessWidget {
                   ),
                   CustomTextField(
                     label: 'Starting address',
-                    controller: viewModel.descriptionController,
+                    controller: viewModel.startingAddressController,
                   ),
                   if (viewModel.bodyGuardType == BodyGuardType.driver)
                     CustomTextField(

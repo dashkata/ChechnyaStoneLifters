@@ -48,11 +48,11 @@ class CreateRequestViewModel extends ChangeNotifier {
       }
     }
     await _requestRepo.createRequest(
-      request: GuardRequest(
+      request: RequestModel(
         id: 0,
-        startAddress: startingAddressController.text,
+        startingAddress: startingAddressController.text,
         date: DateTime.now(),
-        creator: User(0, ''),
+        user: User(0, ''),
         description: descriptionController.text,
         skills: selectedSkills,
       ),

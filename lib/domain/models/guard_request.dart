@@ -1,21 +1,21 @@
 import 'user.dart';
 
-class GuardRequest {
+class RequestModel {
   final int id;
-  final String startAddress;
-  final String? endAddress;
+  final String startingAddress;
+  final String? endingAddress;
   final String description;
   final List<String> skills;
   final DateTime date;
-  final User creator;
+  final User user;
 
-  GuardRequest({
+  RequestModel({
     required this.id,
-    required this.startAddress,
+    required this.startingAddress,
     required this.date,
-    required this.creator,
+    required this.user,
     required this.description,
     required this.skills,
-    this.endAddress,
+    this.endingAddress,
   });
 }

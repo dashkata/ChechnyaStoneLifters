@@ -7,7 +7,7 @@ import 'utils/get_it.dart';
 
 final User user1 = User(1, 'PurvoIme VtoroIme');
 final User user2 = User(2, 'VtoroIme PurvoIme');
-final List<GuardRequest> requests = [];
+final List<RequestModel> requests = [];
 
 void main() {
   setupGetIt();
@@ -22,6 +22,6 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(),
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: Routes.availableRequestsScreen,
+        initialRoute: Routes.createRequest,
       );
 }

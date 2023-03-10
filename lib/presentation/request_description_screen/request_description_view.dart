@@ -5,7 +5,7 @@ import '../../domain/models/guard_request.dart';
 class RequestDescriptionScreen extends StatelessWidget {
   const RequestDescriptionScreen({required this.guardRequest, super.key});
 
-  final GuardRequest guardRequest;
+  final RequestModel guardRequest;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -15,10 +15,10 @@ class RequestDescriptionScreen extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(guardRequest.creator.name),
+            Text(guardRequest.user.name),
             // Text(DateFormat.yMMMMEEEEd().format(guardRequest.date)),
-            Text(guardRequest.startAddress),
-            Text(guardRequest.endAddress ?? ''),
+            Text(guardRequest.startingAddress),
+            Text(guardRequest.endingAddress ?? ''),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

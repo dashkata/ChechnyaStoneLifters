@@ -10,7 +10,7 @@ class APIRepository implements RequestRepo {
 
   @override
   Future<void> createRequest({
-    required GuardRequest request,
+    required RequestModel request,
   }) async {
     await _api.createRequest(
       request: RequestEntity.fromRequest(request),
