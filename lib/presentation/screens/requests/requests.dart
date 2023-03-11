@@ -18,7 +18,7 @@ class RequestsScreen extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Themes.complementaryColor,
-          onPressed: () => Navigator.pushNamed(
+          onPressed: () => Navigator.pushReplacementNamed(
             context,
             Routes.createRequest,
           ),

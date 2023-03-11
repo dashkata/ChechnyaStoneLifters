@@ -17,11 +17,12 @@ class CreateRequestViewModel extends ChangeNotifier {
   final TextEditingController startingAddressController =
       TextEditingController();
   final TextEditingController endingAddressController = TextEditingController();
+  final TextEditingController rentHoursController = TextEditingController();
   final RequestRepo _requestRepo;
   DateTime? pickedDate;
   TimeOfDay? pickedTime;
   DateTime? _selectedDateTime;
-  List<String> skills = ['weapon', 'aa', 'bb', 'cc', 'ee', 'fc', 'fgg'];
+  List<String> skills = ['Gun', 'Vehicle'];
   Map<String, bool> skillsCheck = {};
   BodyGuardType _bodyGuardType = BodyGuardType.driver;
 
@@ -46,23 +47,19 @@ class CreateRequestViewModel extends ChangeNotifier {
   }
 
   Future<void> submitRequest() async {
-    final List<String> selectedSkills = [];
-    for (final value in skillsCheck.keys) {
-      if (skillsCheck[value] != null) {
-        if (skillsCheck[value]!) {
-          selectedSkills.add(value);
-        }
-      }
-    }
-
     await _requestRepo.createRequest(
       request: RequestModel(
         id: 0,
         startingAddress: startingAddressController.text,
-        date: DateTime.now(),
+        date: _selectedDateTime ?? DateTime.now(),
         user: UserModel(Random().nextInt(4) + 1, ''),
         description: descriptionController.text,
-        skills: skillsCheck,
+        isDriver: _bodyGuardType == BodyGuardType.driver,
+        endAddress: endingAddressController.text,
+        hasGun: skillsCheck['Gun'] ?? false,
+        isGuard: _bodyGuardType == BodyGuardType.security,
+        hasVehicle: skillsCheck['Vehicle'] ?? false,
+        rentHours: int.parse(rentHoursController.text),
       ),
     );
   }

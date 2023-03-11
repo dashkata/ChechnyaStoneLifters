@@ -23,6 +23,10 @@ RequestEntity _$RequestEntityFromJson(Map<String, dynamic> json) =>
           ? null
           : BodyguardEntity.fromJson(json['guard'] as Map<String, dynamic>),
       endingAddress: json['endingAddress'] as String?,
+      hasVehicle: json['hasVehicle'] as bool? ?? false,
+      totalCost: json['totalCost'] as int? ?? 0,
+      rentHours: json['rentHours'] as int? ?? 0,
+      date: json['startingTime'] as String? ?? '',
     );
 
 Map<String, dynamic> _$RequestEntityToJson(RequestEntity instance) =>
@@ -38,4 +42,7 @@ Map<String, dynamic> _$RequestEntityToJson(RequestEntity instance) =>
       'startingAddress': instance.startingAddress,
       'endingAddress': instance.endingAddress,
       'isActive': instance.isActive,
+      'totalCost': instance.totalCost,
+      'startingTime': instance.date,
+      'rentHours': instance.rentHours,
     };

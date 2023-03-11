@@ -116,6 +116,23 @@ class RequestDescriptionScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                    top: 24,
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.price_change),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      Text(
+                        '${guardRequest.totalCost} lv.',
+                      ),
+                    ],
+                  ),
+                ),
                 const Spacer(),
                 ElevatedButton(
                   onPressed: () =>

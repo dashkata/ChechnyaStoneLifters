@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/bodyguard_type_enum.dart';
+import '../../resources/router.dart';
 import '../../resources/themes.dart';
 import 'widgets/date_time_row.dart';
 
@@ -107,6 +108,14 @@ class CreateRequestScreen extends StatelessWidget {
                         maxLength: 100,
                       ),
                     const SizedBox(
+                      height: 16,
+                    ),
+                    CustomTextField(
+                      label: 'Rent hours',
+                      controller: viewModel.rentHoursController,
+                      maxLength: 3,
+                    ),
+                    const SizedBox(
                       height: 12,
                     ),
                     _SkillsList(
@@ -118,8 +127,9 @@ class CreateRequestScreen extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () async =>
                           await viewModel.submitRequest().then(
-                                (value) => Navigator.pop(
+                                (value) => Navigator.pushReplacementNamed(
                                   context,
+                                  Routes.requests,
                                 ),
                               ),
                       style: ElevatedButton.styleFrom(

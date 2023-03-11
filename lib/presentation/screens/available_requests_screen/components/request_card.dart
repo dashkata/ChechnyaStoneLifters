@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../domain/models/request_model.dart';
 import '../../../../utils/user_type_enum.dart';
@@ -49,7 +50,8 @@ class RequestCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                   IconTextWidget(
-                    text: 'Date - ${guardRequest.date}',
+                    text:
+                        'Date - ${DateFormat('EEE, MMM d, yyyy, hh:mm a').format(guardRequest.date)}',
                     icon: Icons.calendar_month_outlined,
                     fontSize: 16,
                     fontWeight: FontWeight.w300,
@@ -57,6 +59,12 @@ class RequestCard extends StatelessWidget {
                   IconTextWidget(
                     text: 'Starting point - ${guardRequest.startingAddress}',
                     icon: Icons.location_pin,
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                  ),
+                  IconTextWidget(
+                    text: 'Request price - ${guardRequest.totalCost} lv.',
+                    icon: Icons.price_change,
                     fontSize: 12,
                     fontWeight: FontWeight.normal,
                   ),

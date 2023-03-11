@@ -5,13 +5,14 @@ class RequestModel {
   final String startingAddress;
   final String? endAddress;
   final String description;
-  final Map<String, bool> skills;
   final DateTime date;
   final UserModel user;
   final bool isDriver;
+  final int? totalCost;
   final bool hasGun;
   final bool isGuard;
   final bool hasVehicle;
+  final int rentHours;
 
   RequestModel({
     required this.isDriver,
@@ -21,9 +22,10 @@ class RequestModel {
     required this.id,
     required this.startingAddress,
     required this.date,
+    required this.rentHours,
+    this.totalCost,
     required this.user,
     required this.description,
-    required this.skills,
     this.endAddress,
   });
 
@@ -37,5 +39,7 @@ class RequestModel {
         'hasGun': hasGun,
         'hasVehicle': hasVehicle,
         'isActive': true,
+        'rentHours': rentHours,
+        'startingTime': date.toString(),
       };
 }

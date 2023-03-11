@@ -27,6 +27,9 @@ class RequestEntity {
   BodyguardEntity? guard;
   @JsonKey(defaultValue: '')
   String startingAddress;
+  String date;
+  int totalCost;
+  int rentHours;
   String? endingAddress;
   @JsonKey(defaultValue: true)
   bool isActive;
@@ -38,7 +41,10 @@ class RequestEntity {
     required this.hasGun,
     required this.isGuard,
     required this.isTaken,
+    required this.date,
+    required this.totalCost,
     required this.hasVehicle,
+    required this.rentHours,
     required this.startingAddress,
     required this.isActive,
     this.user,
@@ -49,10 +55,16 @@ class RequestEntity {
   RequestModel toRequest() => RequestModel(
         id: id,
         startingAddress: startingAddress,
-        date: DateTime(1914),
+        date: date.isEmpty ? DateTime.now() : DateTime.parse(date),
         user: UserModel(1, 'MaikaMu'),
         description: description,
-        skills: {'hasGun': hasGun, 'isDriver': isDriver, 'isTaken': isTaken},
+        totalCost: totalCost,
+        hasGun: hasGun,
+        isDriver: isDriver,
+        isGuard: isGuard,
+        hasVehicle: hasVehicle,
+        rentHours: rentHours,
+        endAddress: endingAddress,
       );
 
   factory RequestEntity.fromJson(Map<String, dynamic> json) =>
