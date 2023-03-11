@@ -52,7 +52,7 @@ class CreateRequestViewModel extends ChangeNotifier {
         id: 0,
         startingAddress: startingAddressController.text,
         date: _selectedDateTime ?? DateTime.now(),
-        user: UserModel(Random().nextInt(4) + 1, ''),
+        user: UserModel(Random().nextInt(4) + 1, '', '0239998842'),
         description: descriptionController.text,
         isDriver: _bodyGuardType == BodyGuardType.driver,
         endAddress: endingAddressController.text,

@@ -56,7 +56,7 @@ class RequestEntity {
         id: id,
         startingAddress: startingAddress,
         date: date.isEmpty ? DateTime.now() : DateTime.parse(date),
-        user: UserModel(1, 'MaikaMu'),
+        user: UserModel(1, 'MaikaMu', '029382184'),
         description: description,
         totalCost: totalCost,
         hasGun: hasGun,

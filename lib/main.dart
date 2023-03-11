@@ -6,10 +6,6 @@ import 'presentation/resources/router.dart';
 import 'presentation/resources/themes.dart';
 import 'utils/get_it.dart';
 
-final UserModel user1 = UserModel(1, 'Alexander Georgiev');
-final UserModel user2 = UserModel(2, 'VtoroIme PurvoIme');
-final List<RequestModel> requests = [];
-
 void main() {
   setupGetIt();
   runApp(const MyApp());
